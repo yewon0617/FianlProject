@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+
+/* 기본 초기화 및 폰트 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #EDEDED;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* 기본 네비게이션 바 스타일 */
+.navbar {
+    background-color: #ff4136; /* 브랜드 레드 색상 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px; /* 네비게이션 바 높이 고정 */
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.nav-left {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative; /* 자식 요소인 서브메뉴가 내 아래에 딱 붙도록 기준점 설정 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 메인 대메뉴 간격과 폰트 스타일 */
+.main-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 0 30px; /* 대메뉴 간의 간격을 정갈하게 부여 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ── 💡 [핵심 수정] 밑에 뜨는 서브메뉴 박스 위치 및 정렬 ── */
+.dropdown-parent {
+    position: relative; /* 대메뉴 글자 영역을 기준으로 삼음 */
+}
+
+.dropdown-parent .dropdown-menu-box {
+    display: none; /* 평소에는 숨겨둠 */
+    position: absolute;
+    
+    /* 대메뉴 글자 아래에 수직/수평 정중앙 배치 맞춤 */
+    top: 100%;    /* 고정 수치(60px) 대신 100%를 주면 대메뉴 글자 높이에 딱 맞게 밀착됩니다 */
+    left: 50%;   /* 대메뉴 글자의 정확한 가로축 50% 지점으로 이동 */
+    transform: translateX(-50%); /* 박스 자체 너비의 절반만큼 왼쪽으로 당겨 완벽한 중앙 정렬 완성 */
+    
+    background-color: #7A7A7A; /* 시안 고유의 회색 배경 */
+    width: 150px; /* 글자가 깨지지 않으면서 콤팩트한 최적의 너비 설정 */
+    padding: 12px 0;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 효과 */
+    z-index: 1100; /* 콘텐츠 위로 확실하게 띄우기 */
+}
+
+/* 마우스를 올렸을 때 서브메뉴 나타나게 조절 */
+.dropdown-parent:hover .dropdown-menu-box {
+    display: block;
+}
+
+/* 서브메뉴 내부 리스트 정렬 */
+.dropdown-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* 항목 간의 깔끔한 간격 설정 */
+}
+
+.dropdown-list li {
+    width: 100%;
+    text-align: center; /* 회색 박스 안에서 글자들이 무조건 가운데로 정렬 */
+}
+
+.dropdown-list li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 0; /* 마우스 올렸을 때 선택 영역을 넓혀 가독성 향상 */
+    transition: all 0.2s ease;
+    letter-spacing: -0.3px; /* 자간을 아주 미세하게 줄여 폰트 핏 최적화 */
+}
+
+/* 메뉴에 마우스 올렸을 때 효과 */
+.dropdown-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* 부드러운 하이라이팅 배경 */
+    color: #ffffff; 
+}
+
+/* 메인 컨테이너 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 20px 80px 20px;
+}
+
+/* --- [수정 완료] 타이포그래피 영역 및 정밀 데코레이션 스타일 --- */
+.top-layout {
+    display: block;        /* 가로 배치 flex에서 블록 구조로 변경하여 중앙 정렬 기반 마련 */
+    width: 100%;
+    margin-bottom: 10px;  /* 하단 일러스트 레이아웃과의 간격 조정 */
+}
+
+.typography-area {
+    position: relative;
+    width: 400px;          /* 가이드선(SVG)의 본래 가로 크기(viewBox 400)와 1:1 대응하여 오차 제거 */
+    min-height: 550px;
+    margin: 0 auto;        /* 🌟 핵심: 타이포 박스를 화면 전체 가로축 기준 정중앙에 고정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 원본 이미지의 정교한 선과 점들을 완벽히 재현하기 위한 SVG 오버레이 레이어 */
+.deco-svg {
+    position: absolute;
+    top: 0;
+    left: 21%;
+    width: 55%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* 시안 포스터 맞춤형 가로 폭 압축 및 flex 레이아웃 */
+.main-title-grid {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin: 0 auto;
+    padding-top: 25px;    /* 빨간 곡선 가이드라인 안쪽에 글자가 이쁘게 안착하도록 수직 오차 보정 */
+}
+
+/* 세로로 한 열씩 정렬되도록 세팅 */
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+/* 글자 크기 키우고 위아래 자간을 쫀쫀하게 흡착 */
+.char-big {
+    font-size: 56px;
+    color: #000000;
+    line-height: 1.15;
+    letter-spacing: -5px;
+    display: block;
+    text-align: center;
+}
+
+/* 서체 정밀 디테일 분기 (두꺼운 고딕, 두꺼운 명조, 얇은 명조) */
+.font-sans {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
+.font-serif {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 10;
+}
+.font-serif-light {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 900; /* 이미지 시안에서 '심'자만 유독 얇은 굵기 반영 */
+}
+
+/* --- 기존 하단 레이아웃 --- */
+.bottom-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.left-bold-text {
+    width: 40%;
+    font-size: 12.5px;
+    line-height: 2.3;
+    color: #000000;
+    text-align: justify;
+}
+
+.right-illustration {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.placeholder-img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+}
+
+
+/* ── 지그재그형 스토리 행 스타일 ── */
+.story-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    margin-top: 50px;
+}
+
+.story-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* reverse 이름표를 만나면 좌우 배치 반전 순서 작동 */
+.story-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.story-img-box {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-text-box {
+    width: 40%;
+    font-size: 12px;
+    line-height: 2.1;
+    color: #222222;
+    text-align: justify;
+}
+
+.story-text-box p {
+    margin-bottom: 25px;
+}
+.story-text-box p:last-child {
+    margin-bottom: 0;
+}
+
+.single-text-row {
+    justify-content: flex-end;
+    margin-top: -50px;
+}
+
+.story-text-box.full-width {
+    width: 40%;
+}
+
+/* --- 푸터 스타일 --- */
+.footer {
+    background-color: #ff4136;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 180px;
+}

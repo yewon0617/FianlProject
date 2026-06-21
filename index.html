@@ -1,0 +1,147 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+</style>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지금의 20대는 왜 우울한가</title>
+    <link rel="stylesheet" href="myStyle.css">
+</head>
+<body>
+
+<!-- 상단 네비게이션 바 -->
+<header class="navbar">
+    <div class="nav-container">
+        <ul class="nav-left">
+            <li class="nav-item">
+                <a href="index.html" class="main-nav-link">지금의 20대는 왜 우울한가?</a>
+            </li>
+            
+            <li class="nav-item dropdown-parent">
+                <a href="#" class="main-nav-link">우울 이유</a>
+                <div class="dropdown-menu-box">
+                    <ul class="dropdown-list">
+                        <li><a href="comparison.html">비교 중심 사회</a></li>
+                        <li><a href="future.html">미래 불안</a></li>
+                        <li><a href="loneliness.html">외로움</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+    <main class="container">
+
+        <section class="hero-section">
+            <div class="hero-title">
+                <h1>지금의<br>20대는<br>왜 우울한가</h1>
+            </div>
+            <div class="hero-image">
+                <img src="img/20대는 왜 우울한가.png" alt="생각하는 사람 일러스트" class="placeholder-img">
+                <div class="speech-bubble">요즘 어둡고<br>답답해...</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-text">
+                <h2>우울이란?</h2>
+                <div class="quote-box">
+                    <p class="en-quote">"The opposite of depression is not happiness, but vitality"</p>
+                    <p class="ko-quote">우울증의 반대말은 행복이 아니라 '활력'이다.</p>
+                    <p class="author">- 앤드류 솔로몬</p>
+                </div>
+                <p class="description">
+                    우울은 근심스럽고 답답하며 활기가 없는 정신적 상태나 기분을 뜻한다. 
+                    슬픔, 무기력, 의욕 저하를 동반하여 일상생활과 생각 전반에 영향을 미치는 것이 특징이다.
+                </p>
+            </div>
+            <div class="info-image">
+                <img src="img/우울이란.png" alt="의자에 앉아 괴로워하는 사람 일러스트" class="placeholder-img">
+            </div>
+        </section>
+
+        <!-- 섹션 3: 대한민국 우울 실태 (차트 및 본문) -->
+        <section class="stat-section">
+            <h2 class="stat-title">대한민국 우울 실태</h2>
+            
+            <!-- 범례 -->
+            <div class="legend">
+                <span class="legend-item"><span class="color-box gray"></span> 정신 및 행동장애</span>
+                <span class="legend-item"><span class="color-box red"></span> 우울증</span>
+            </div>
+
+            <!-- CSS 구현 차트 -->
+            <div class="chart-container">
+                <!-- 2021년 -->
+                <div class="chart-group">
+                    <div class="bar-pair">
+                        <div class="bar gray-bar" style="height: 160px;"><span class="bar-value">360만</span></div>
+                        <div class="bar red-bar" style="height: 91px;"><span class="bar-value">91만</span></div>
+                    </div>
+                    <div class="bar-label">2021년</div>
+                </div>
+                <!-- 2022년 -->
+                <div class="chart-group">
+                    <div class="bar-pair">
+                        <div class="bar gray-bar" style="height: 185px;"><span class="bar-value">385만</span></div>
+                        <div class="bar red-bar" style="height: 99px;"><span class="bar-value">99만</span></div>
+                    </div>
+                    <div class="bar-label">2022년</div>
+                </div>
+                <!-- 2023년 -->
+                <div class="chart-group">
+                    <div class="bar-pair">
+                        <div class="bar gray-bar" style="height: 203px;"><span class="bar-value">403만</span></div>
+                        <div class="bar red-bar" style="height: 104px;"><span class="bar-value">104만</span></div>
+                    </div>
+                    <div class="bar-label">2023년</div>
+                </div>
+                <!-- 2024년 -->
+                <div class="chart-group">
+                    <div class="bar-pair">
+                        <div class="bar gray-bar" style="height: 221px;"><span class="bar-value">421만</span></div>
+                        <div class="bar red-bar" style="height: 110px;"><span class="bar-value">110만</span></div>
+                    </div>
+                    <div class="bar-label">2024년</div>
+                </div>
+                <!-- 2025년 -->
+                <div class="chart-group">
+                    <div class="bar-pair">
+                        <div class="bar gray-bar" style="height: 232px;"><span class="bar-value">432만</span></div>
+                        <div class="bar red-bar" style="height: 113px;"><span class="bar-value">113만</span></div>
+                    </div>
+                    <div class="bar-label">2025년</div>
+                </div>
+            </div>
+
+            <!-- image_1dce42.png 구조를 반영한 세로 타임라인 선 -->
+            <div class="timeline-indicator">
+                <div class="vertical-line"></div>
+                <div class="dot-pointer"></div>
+            </div>
+
+            <!-- 하단 기사/통계 본문 영역 -->
+            <div class="stat-article">
+                <!-- 새로 추가된 빨간색 서브 타이틀 -->
+                <h3 class="article-subtitle">갈수록 더 우울해지는 한국인…우울증 환자 4년새 25% ↑</h3>
+
+                <p>우울증과 정신질환을 앓는 국내 환자 수가 4년 전보다 20% 넘게 급증한 것으로 나타났다.</p>
+                <p>3일 국회 보건복지위원회 소속 최보윤 국민의힘 의원실이 건강보험심사평가원(심평원)을 통해 받은 '2021~2025년 우울증 및 정신질환 청구 현황'에 따르면 지난해 우리나라 우울증 환자 수는 113만8230명으로 2021년(91만785명) 대비 25% 급증했다.</p>
+                <p>같은 기간 조현병·정신지체 등을 포함한 정신 및 행동장애 환자 수는 360만2209명에서 432만8595명으로 20.2% 늘었다.</p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <p>한경국립대학교 미디어디자인전공 | 이예원 </p>
+        <p>이 웹사이트는 디지털퍼블리싱1 수업의 일환으로 제작되었습니다.</p>
+    </footer>
+
+</body>
+</html>

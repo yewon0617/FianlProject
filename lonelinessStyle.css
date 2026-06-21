@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+
+/* 기본 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 💡 [배경 수정] image_896259.png 시안 고유의 정갈하고 차분한 연회색 단색 배경 구현 */
+body {
+    background-color: #efefef; /* 시안 특유의 부드러운 단색 라이트 그레이 */
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   🔴 상단 네비게이션 바 스타일 (유지)
+========================================== */
+.navbar {
+    background-color: #ff4136; /* 브랜드 레드 색상 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px; /* 네비게이션 바 높이 고정 */
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.nav-left {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative; /* 자식 요소인 서브메뉴가 내 아래에 딱 붙도록 기준점 설정 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 메인 대메뉴 간격과 폰트 스타일 */
+.main-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 0 30px; /* 대메뉴 간의 간격을 정갈하게 부여 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 드롭다운 메뉴 박스 */
+.dropdown-parent .dropdown-menu-box {
+    display: none; /* 평소에는 숨겨둠 */
+    position: absolute;
+    top: 60px; /* 상단 빨간 바 바로 밑바닥 높이에 정확히 일치 */
+    left: 50%; /* 메뉴의 정중앙에 위치시킴 */
+    transform: translateX(-50%); /* 정확한 가로축 중앙 정렬 보정 */
+    
+    background-color: #7A7A7A; /* 시안 고유의 회색 배경 */
+    width: 160px; 
+    padding: 15px 0;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 효과 */
+}
+
+/* 마우스를 올렸을 때 서브메뉴 나타나게 조절 */
+.dropdown-parent:hover .dropdown-menu-box {
+    display: block;
+}
+
+/* 서브메뉴 내부 리스트 정렬 */
+.dropdown-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 세로 항목 간의 깔끔한 여백 */
+}
+
+.dropdown-list li {
+    width: 100%;
+    text-align: center; /* 회색 박스 안에서 글자들이 가운데 정렬되도록 수정 */
+}
+
+.dropdown-list li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 0;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff4136; /* 마우스 올리면 브랜드 레드로 포인트 */
+}
+
+
+/* ==========================================
+   🎣 외로움 페이지 본문 전용 스타일 (시안 반영)
+========================================== */
+.lonely-container {
+    width: 100%;
+    background-color: #f2f2f2; /* 시안 특유의 아주 밝은 회색/아이보리 톤 배경 */
+    padding: 80px 0 120px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 상단 낚시 일러스트 + 타이틀 */
+.lonely-header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 160px; /* 타이틀과 본문 사이의 넓은 여백 */
+}
+
+.lonely-illustration {
+    width: 100%;
+    max-width: 380px; /* 시안의 일러스트 비율 유지 */
+    margin-bottom: 35px;
+}
+
+.lonely-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.lonely-page-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: -1px;
+}
+
+/* 중앙 흐름 본문 텍스트 박스 */
+.lonely-body-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.lonely-text-wrap {
+    width: 100%;
+    max-width: 600px; /* 🌟 중요: 시안처럼 한 줄당 글자수가 너무 길지 않게 폭을 컴팩트하게 제한 */
+    display: flex;
+    flex-direction: column;
+    gap: 160px; /* 문단과 문단 사이의 호흡을 길게 가져가는 여백 */
+}
+
+.lonely-text-wrap p {
+    font-size: 12.5px;
+    line-height: 2.3; /* 시안처럼 행간을 무척 넓게 주어 쓸쓸하고 차분한 무드 연출 */
+    color: #111111;
+    text-align: justify; /* 양끝 정렬로 잡지/도서 인쇄물 같은 깔끔한 느낌 구현 */
+    word-break: keep-all; /* 한글 단어가 중간에 툭 끊겨 줄바꿈되지 않도록 보호 */
+    letter-spacing: -0.2px;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #ff4136;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 11px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+}

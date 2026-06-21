@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+
+/* 기본 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 💡 시안의 딥 그라데이션 배경 구현 (상단 어두운 차콜에서 하단 라이트 그레이/화이트로 전환) */
+body {
+    background: linear-gradient(to bottom, #2b2b2b 0%, #404040 25%, #7a7a7a 50%, #dcdcdc 80%, #ffffff 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* 기본 네비게이션 바 스타일 */
+.navbar {
+    background-color: #ff4136; /* 브랜드 레드 색상 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px; /* 네비게이션 바 높이 고정 */
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.nav-left {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative; /* 자식 요소인 서브메뉴가 내 아래에 딱 붙도록 기준점 설정 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 메인 대메뉴 간격과 폰트 스타일 */
+.main-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 0 30px; /* 대메뉴 간의 간격을 정갈하게 부여 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ── 💡 [핵심 수정] 밑에 뜨는 서브메뉴 박스 위치 및 정렬 ── */
+.dropdown-parent .dropdown-menu-box {
+    display: none; /* 평소에는 숨겨둠 */
+    position: absolute;
+    top: 60px; /* 상단 빨간 바 바로 밑바닥 높이에 정확히 일치 */
+    left: 50%; /* [우울 이유] 메뉴의 정중앙에 위치시킴 */
+    transform: translateX(-50%); /* 정확한 가로축 중앙 정렬 보정 */
+    
+    background-color: #7A7A7A; /* 시안 고유의 회색 배경 */
+    width: 160px; /* 철학자 이름이 빠져서 슬림하고 보기 좋게 너비 조정 */
+    padding: 15px 0;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 효과 */
+}
+
+/* 마우스를 올렸을 때 서브메뉴 나타나게 조절 */
+.dropdown-parent:hover .dropdown-menu-box {
+    display: block;
+}
+
+/* 서브메뉴 내부 리스트 정렬 */
+.dropdown-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 세로 항목 간의 깔끔한 여백 */
+}
+
+.dropdown-list li {
+    width: 100%;
+    text-align: center; /* 회색 박스 안에서 글자들이 가운데 정렬되도록 수정 */
+}
+
+.dropdown-list li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 0;
+    transition: background-color 0.2s ease;
+}
+
+/* 메뉴에 마우스 올렸을 때 살짝 더 밝아지는 효과 (선택 사항) */
+.dropdown-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff4136; /* 마우스 올리면 브랜드 레드로 포인트 */
+}
+
+/* 메인 래퍼: 시안처럼 길고 웅장한 공간감 확보 */
+.future-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 180px 20px 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── 💡 [타이포그래피] 세로형 미래불안 스타일 타이틀 ── */
+.future-header {
+    margin-bottom: 250px; /* 타이틀 하단에 시안 고유의 압도적인 여백 형성 */
+    text-align: center;
+}
+
+.vertical-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0;
+    line-height: 1.4;
+}
+
+.vertical-title span {
+    display: block;
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ── 💡 [본문 영역] 시안의 스포크 스타일 슬림 텍스트 그리드 ── */
+.future-content {
+    width: 100%;
+    max-width: 520px; /* 양옆 여백을 크게 주어 가운데로 텍스트를 응축 */
+    display: flex;
+    flex-direction: column;
+    gap: 160px; /* 문단과 문단 사이의 거대한 수직 여백 구현 */
+    margin-bottom: 200px;
+}
+
+.content-paragraph {
+    width: 100%;
+}
+
+.content-paragraph p {
+    font-size: 12.5px;
+    line-height: 2.3; /* 줄간격을 넓게 벌려 시안 특유의 여운을 제공 */
+    color: rgba(255, 255, 255, 0.75); /* 그라데이션 중간 영역 가독성을 위한 미드나잇 화이트 그레이 */
+    text-align: justify; /* 시안처럼 양끝 정렬 기법 적용 */
+    letter-spacing: -0.2px;
+    word-break: keep-all;
+}
+
+/* 배경 색상이 밝아지는 하단부 문단들의 글자 색상 반전 제어 (가독성 확보) */
+.future-content .content-paragraph:nth-child(3) p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.future-content .content-paragraph:nth-child(4) p {
+    color: #ffffff; /* 하단은 배경이 밝아지므로 어두운 그레이로 부드럽게 전환 */
+    font-weight: 500;
+}
+
+/* ── 💡 [하단 일러스트 영역] ── */
+.future-footer-illustration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.illustration-box {
+    width: 260px; /* 일러스트 컴포트 크기 고정 */
+    transition: transform 0.5s ease;
+}
+
+.future-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #ff4136;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 11px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+}
